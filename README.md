@@ -118,4 +118,3 @@ This project is developed as a college full-stack web development project, demon
 
 Rudra Parekh
 Dax Patel
-
