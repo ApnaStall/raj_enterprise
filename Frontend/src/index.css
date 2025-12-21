@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@keyframes hoverLoad {
+  0% {
+    transform: scale(1);
+    background-color: transparent;
+  }
+  100% {
+    transform: scale(1.05);
+    background-color: #f3f4f6; /* same as your hover color */
+  }
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(10px); }
+}
+
+.animate-fade {
+  animation: fadeInOut 2s ease-in-out;
+}

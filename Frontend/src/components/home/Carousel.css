@@ -1,0 +1,29 @@
+.mySwiper .swiper-button-next::after {
+  content: '›';
+  margin-right: -20px;
+}
+
+.mySwiper .swiper-button-prev::after {
+  content: '‹';
+  margin-left: -20px;
+}
+
+.mySwiper .swiper-button-prev,
+.mySwiper .swiper-button-next {
+  top: var(--swiper-navigation-top-offset, 0%) !important;
+  width: 8%;
+  height:100%;
+  padding:5rem;
+  font-size: 50px;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 150ms ease-in-out;
+}
+
+.mySwiper .swiper-button-prev:hover,
+.mySwiper .swiper-button-next:hover {
+  color: rgba(255, 255, 255, 1);
+}
