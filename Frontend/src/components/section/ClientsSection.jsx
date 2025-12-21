@@ -7,7 +7,7 @@ export default function ClientsSection() {
   useEffect(() => {
     async function loadClients() {
       try {
-        const res = await fetch("http://localhost:5000/api/service");
+        const res = await fetch(`import.meta.env.VITE_BACKEND_URL/api/service`);
 
         if (!res.ok) {
           throw new Error("Failed to fetch services");

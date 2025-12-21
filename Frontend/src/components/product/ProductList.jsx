@@ -13,7 +13,7 @@ const ProductList = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/product/")
+      .get(`${import.meta.env.VITE_BACKEND_URL}/product/`)
       .then((res) => {
         setProducts(res.data);
       })

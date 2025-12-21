@@ -52,7 +52,7 @@ router.post("/add", upload.single("image"), async (req, res) => {
       return res.status(400).json({ message: "Image is required" });
     }
 
-    const baseUrl = process.env.BASE_URL || "http://localhost:5000";
+    const baseUrl = process.env.VITE_BACKEND_URL;
     const imageURL = `${baseUrl}/uploads/${req.file.filename}`;
 
     const product = new Product({
