@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
-import "./carousel.css";
+import "../home/Carousel.css";
 import c1 from '../../assets/c1.png';
 import c2 from '../../assets/c2.png';
 import c3 from '../../assets/c3.png';
