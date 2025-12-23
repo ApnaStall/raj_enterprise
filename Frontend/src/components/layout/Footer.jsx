@@ -76,14 +76,6 @@ export default function Footer() {
 
         <div className="space-y-2">
           <br /><br />
-          <p><Link to="" className="hover:underline hover:text-gray-400 curson-pointer">Brochure</Link></p>
-          <p><Link to="" className="hover:underline hover:text-gray-400 curson-pointer">Our team</Link></p>
-          <p><Link to="" className="hover:underline hover:text-gray-400 curson-pointer">Leadership</Link></p>
-          <p><Link to="" className="hover:underline hover:text-gray-400 curson-pointer">Privacy Policy</Link></p>
-        </div>
-
-        <div className="space-y-2">
-          <br /><br />
           <p><Link to="" className="hover:underline hover:text-gray-400 curson-pointer">O.T. Linen</Link></p>
           <p><Link to="" className="hover:underline hover:text-gray-400 curson-pointer">Doctor Scrub</Link></p>
           <p><Link to="" className="hover:underline hover:text-gray-400 curson-pointer">Uniform Dress</Link></p>
@@ -92,9 +84,16 @@ export default function Footer() {
 
         <div className="space-y-2">
           <br /><br />
+          <p><Link to="" className="hover:underline hover:text-gray-400 curson-pointer">Price List</Link></p>
+          <p><Link to="" className="hover:underline hover:text-gray-400 curson-pointer">Our team</Link></p>
+          <p><Link to="" className="hover:underline hover:text-gray-400 curson-pointer">Leadership</Link></p>
+        </div>
+
+        <div className="space-y-2">
+          <br /><br />
           <p>Proprietor -</p>
-          <p>Harmeet Singh</p>
-          <p className="font-semibold">+91 9137849641</p>
+          <p>Harmeet Singh, Ravindra Singh</p>
+          <p className="font-semibold">+91 9137849641, +91 9769414402</p>
         </div>
       </div>
 
@@ -102,7 +101,7 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row 
                         justify-between items-center gap-3">
 
-          <p>Copyright ©2025. All Rights Reserved. — Designed with love by
+          <p>Copyright ©2025. All Rights Reserved. — Designed by
             <span className="font-semibold"> Rudra Parekh and Dax Patel</span>
           </p>
 

@@ -40,7 +40,7 @@ export default function CategoryCard() {
         {categories.map((cat, index) => (
           <div
             key={index}
-            className="flex flex-row items-center mr-20 md:mr-0 text-center w-full max-w-[260px] gap-8"
+            className="flex flex-row items-center mr-20 md:mr-0 text-center w-full max-w-65 gap-8"
           >
             <div className="relative">
               <div className="absolute top-6 left-4 w-20 h-20 mt-10 bg-gray-200 rounded-3xl opacity-50"></div>

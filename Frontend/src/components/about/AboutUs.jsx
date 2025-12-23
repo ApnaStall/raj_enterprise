@@ -1,5 +1,4 @@
 import React from 'react'
-import a1 from '../../assets/a1.mp4'
 
 function AboutUs() {
   return (
