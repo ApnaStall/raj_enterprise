@@ -1,5 +1,5 @@
-import express from "express";
-import { upload } from "../middleware/uploadMiddleware";
+const express = require("express");
+const upload = require("../middleware/uploadMiddleware");
 
 const router = express.Router();
 
@@ -8,4 +8,4 @@ router.post("/upload", upload.single("image"), (req, res) => {
   res.json({ url: imageUrl });
 });
 
-export default router;
+module.exports = router;
