@@ -1,5 +1,6 @@
 import { useState } from "react";
 import adminApi from "../../services/adminApi";
+import api from "../../services/api"; // ✅ ADD THIS
 
 const ProductForm = ({ product, onSaved }) => {
   const [name, setName] = useState(product?.product_name || "");
@@ -14,13 +15,13 @@ const ProductForm = ({ product, onSaved }) => {
     try {
       let imageUrl = product?.product_image || "";
 
-      // ⬆️ upload image if selected
+      // ✅ Upload image via /api/upload
       if (imageFile) {
         const formData = new FormData();
         formData.append("image", imageFile);
 
-        const uploadRes = await adminApi.post("/upload", formData, {
-          headers: { "Content-Type": "multipart/form-data" }
+        const uploadRes = await api.post("/upload", formData, {
+          headers: { "Content-Type": "multipart/form-data" },
         });
 
         imageUrl = uploadRes.data.url;
@@ -29,7 +30,7 @@ const ProductForm = ({ product, onSaved }) => {
       const payload = {
         product_name: name,
         product_price: price,
-        product_image: imageUrl
+        product_image: imageUrl,
       };
 
       if (product) {
