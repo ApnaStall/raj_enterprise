@@ -4,27 +4,43 @@ import adminApi from "../../services/adminApi";
 const ProductForm = ({ product, onSaved }) => {
   const [name, setName] = useState(product?.product_name || "");
   const [price, setPrice] = useState(product?.product_price || "");
-  const [image, setImage] = useState(product?.product_image || "");
+  const [imageFile, setImageFile] = useState(null);
   const [saving, setSaving] = useState(false);
 
   const submit = async (e) => {
     e.preventDefault();
     setSaving(true);
 
-    const payload = {
-      product_name: name,
-      product_price: price,
-      product_image: image
-    };
-
     try {
+      let imageUrl = product?.product_image || "";
+
+      // ⬆️ upload image if selected
+      if (imageFile) {
+        const formData = new FormData();
+        formData.append("image", imageFile);
+
+        const uploadRes = await adminApi.post("/upload", formData, {
+          headers: { "Content-Type": "multipart/form-data" }
+        });
+
+        imageUrl = uploadRes.data.url;
+      }
+
+      const payload = {
+        product_name: name,
+        product_price: price,
+        product_image: imageUrl
+      };
+
       if (product) {
         await adminApi.put(`/products/${product._id}`, payload);
       } else {
         await adminApi.post("/products", payload);
       }
+
       onSaved();
-    } catch {
+    } catch (err) {
+      console.error(err);
       alert("Failed to save product");
     } finally {
       setSaving(false);
@@ -55,12 +71,12 @@ const ProductForm = ({ product, onSaved }) => {
       </div>
 
       <div>
-        <label className="text-sm text-gray-600">Image URL</label>
+        <label className="text-sm text-gray-600">Product Image</label>
         <input
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
+          type="file"
+          accept="image/*"
+          onChange={(e) => setImageFile(e.target.files[0])}
           className="w-full border rounded-lg px-3 py-2 mt-1"
-          placeholder="https://..."
         />
       </div>
 

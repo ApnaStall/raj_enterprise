@@ -13,6 +13,7 @@ const orderRoute = require("./routes/OrderRoute");
 const paymentRoute = require("./routes/PaymentRoute");
 const productRoute = require("./routes/ProductRoute");
 const serviceRoute = require("./routes/ServiceRoute");
+const uploadRoute = require("./routes/UploadRoute");
 const userRoute = require("./routes/UserRoute");
 const { log, error } = require("./utils/logger");
 
@@ -48,6 +49,7 @@ app.use("/api/orders", orderRoute);
 app.use("/api/payment", paymentRoute);
 app.use("/product", productRoute);
 app.use("/api/service", serviceRoute);
+app.use("/api", uploadRoute);
 app.use("/api/user", userRoute);
 
 /* -------------------- ROOT -------------------- */
