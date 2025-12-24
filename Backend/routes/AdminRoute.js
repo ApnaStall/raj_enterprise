@@ -397,8 +397,8 @@ router.post("/products", authMiddleware, adminOnly, async (req, res) => {
       message: "Product added",
       product
     });
-  } catch (error) {
-    error("ADD PRODUCT ERROR:", error);
+  } catch (err) {
+    error("ADD PRODUCT ERROR:", err);
     res.status(500).json({
       success: false,
       message: "Failed to add product"
