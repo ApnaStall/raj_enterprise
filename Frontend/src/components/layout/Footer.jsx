@@ -76,15 +76,15 @@ export default function Footer() {
 
         <div className="space-y-2">
           <br /><br />
-          <p><Link to="" className="hover:underline hover:text-gray-400 curson-pointer">O.T. Linen</Link></p>
-          <p><Link to="" className="hover:underline hover:text-gray-400 curson-pointer">Doctor Scrub</Link></p>
-          <p><Link to="" className="hover:underline hover:text-gray-400 curson-pointer">Uniform Dress</Link></p>
-          <p><Link to="" className="hover:underline hover:text-gray-400 curson-pointer">Patient Dress</Link></p>
+          <p><Link to={`/shop?category=${encodeURIComponent("O.T. Linen")}`} className="hover:underline hover:text-gray-400 cursor-pointer">O.T. Linen</Link></p>
+          <p><Link to={`/shop?category=${encodeURIComponent("Doctor Scrub")}`} className="hover:underline hover:text-gray-400 cursor-pointer">Doctor Scrub</Link></p>
+          <p><Link to={`/shop?category=${encodeURIComponent("Staff Uniform")}`} className="hover:underline hover:text-gray-400 cursor-pointer" >Uniform Dress</Link></p>
+          <p><Link to={`/shop?category=${encodeURIComponent("Patient Dress")}`} className="hover:underline hover:text-gray-400 cursor-pointer" >Patient Dress</Link></p>
         </div>
 
         <div className="space-y-2">
           <br /><br />
-          <p><Link to="" className="hover:underline hover:text-gray-400 curson-pointer">Price List</Link></p>
+          <p><Link to="" className="hover:underline hover:text-gray-400 curson-pointer">Rate List</Link></p>
           <p><Link to="" className="hover:underline hover:text-gray-400 curson-pointer">Our team</Link></p>
           <p><Link to="" className="hover:underline hover:text-gray-400 curson-pointer">Leadership</Link></p>
         </div>
