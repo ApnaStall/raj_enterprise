@@ -20,14 +20,28 @@ const { log, error } = require("./utils/logger");
 const app = express();
 
 /* -------------------- MIDDLEWARE -------------------- */
+const allowedOrigins = [
+  "https://raj-enterprise-new.vercel.app"
+];
+
 app.use(
   cors({
-    origin: process.env.VITE_FRONTEND_URL,
+    origin: function (origin, callback) {
+      // allow requests with no origin (like Postman)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("Not allowed by CORS"));
+    },
     credentials: true,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
