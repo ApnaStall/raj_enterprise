@@ -1,10 +1,20 @@
 import { useState } from "react";
 import adminApi from "../../services/adminApi";
-import api from "../../services/api"; // ✅ ADD THIS
+import api from "../../services/api";
+
+const CATEGORY_OPTIONS = [
+  "O. T. Linen",
+  "Doctor Scrub",
+  "Staff Uniform",
+  "Patient Dress",
+];
 
 const ProductForm = ({ product, onSaved }) => {
   const [name, setName] = useState(product?.product_name || "");
   const [price, setPrice] = useState(product?.product_price || "");
+  const [category, setCategory] = useState(
+    product?.product_category || CATEGORY_OPTIONS[0]
+  );
   const [imageFile, setImageFile] = useState(null);
   const [saving, setSaving] = useState(false);
 
@@ -15,7 +25,7 @@ const ProductForm = ({ product, onSaved }) => {
     try {
       let imageUrl = product?.product_image || "";
 
-      // ✅ Upload image via /api/upload
+      // ✅ Upload image if selected
       if (imageFile) {
         const formData = new FormData();
         formData.append("image", imageFile);
@@ -27,9 +37,11 @@ const ProductForm = ({ product, onSaved }) => {
         imageUrl = uploadRes.data.url;
       }
 
+      // ✅ FINAL PAYLOAD (matches backend schema)
       const payload = {
         product_name: name,
-        product_price: price,
+        product_price: Number(price), // ensure number
+        product_category: category,
         product_image: imageUrl,
       };
 
@@ -41,7 +53,7 @@ const ProductForm = ({ product, onSaved }) => {
 
       onSaved();
     } catch (err) {
-      console.error(err);
+      console.error("SAVE PRODUCT ERROR:", err);
       alert("Failed to save product");
     } finally {
       setSaving(false);
@@ -50,6 +62,7 @@ const ProductForm = ({ product, onSaved }) => {
 
   return (
     <form onSubmit={submit} className="space-y-4">
+      {/* Product Name */}
       <div>
         <label className="text-sm text-gray-600">Product Name</label>
         <input
@@ -60,6 +73,24 @@ const ProductForm = ({ product, onSaved }) => {
         />
       </div>
 
+      {/* Category */}
+      <div>
+        <label className="text-sm text-gray-600">Category</label>
+        <select
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          className="w-full border rounded-lg px-3 py-2 mt-1"
+          required
+        >
+          {CATEGORY_OPTIONS.map((cat) => (
+            <option key={cat} value={cat}>
+              {cat}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Price */}
       <div>
         <label className="text-sm text-gray-600">Price</label>
         <input
@@ -71,6 +102,7 @@ const ProductForm = ({ product, onSaved }) => {
         />
       </div>
 
+      {/* Image */}
       <div>
         <label className="text-sm text-gray-600">Product Image</label>
         <input
@@ -81,6 +113,7 @@ const ProductForm = ({ product, onSaved }) => {
         />
       </div>
 
+      {/* Submit */}
       <button
         type="submit"
         disabled={saving}
