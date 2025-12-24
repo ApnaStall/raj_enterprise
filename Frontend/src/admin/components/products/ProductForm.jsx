@@ -3,7 +3,7 @@ import adminApi from "../../services/adminApi";
 import api from "../../services/api";
 
 const CATEGORY_OPTIONS = [
-  "O. T. Linen",
+  "O.T. Linen",
   "Doctor Scrub",
   "Staff Uniform",
   "Patient Dress",
