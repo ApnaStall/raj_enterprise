@@ -92,8 +92,8 @@ router.get("/dashboard", authMiddleware, adminOnly, async (req, res) => {
       recentOrders
     });
 
-  } catch (error) {
-    error("ADMIN DASHBOARD ERROR:", error);
+  } catch (err) {
+    error("ADMIN DASHBOARD ERROR:", err);
     res.status(500).json({
       success: false,
       message: "Dashboard data fetch failed",
@@ -121,7 +121,7 @@ router.get("/users", authMiddleware, adminOnly, async (req, res) => {
       count: users.length,
       users
     });
-  } catch (error) {
+  } catch (err) {
     res.status(500).json({
       success: false,
       message: "Failed to fetch users"
@@ -142,8 +142,8 @@ router.get("/users/:id", authMiddleware, adminOnly, async (req, res) => {
       success: true,
       user
     });
-  } catch (error) {
-    error("ADMIN USER ERROR:", error);
+  } catch (err) {
+    error("ADMIN USER ERROR:", err);
     res.status(500).json({
       success: false,
       message: "Failed to fetch user",
@@ -176,8 +176,8 @@ router.patch("/users/:id/role", authMiddleware, adminOnly, async (req, res) => {
       message: "User role updated",
       user
     });
-  } catch (error) {
-    error("ADMIN USER ERROR:", error);
+  } catch (err) {
+    error("ADMIN USER ERROR:", err);
     res.status(500).json({
       success: false,
       message: "Failed to fetch user",
@@ -207,8 +207,8 @@ router.delete("/users/:id", authMiddleware, adminOnly, async (req, res) => {
       success: true,
       message: "User deleted"
     });
-  } catch (error) {
-    error("ADMIN USER ERROR:", error);
+  } catch (err) {
+    error("ADMIN USER ERROR:", err);
     res.status(500).json({
       success: false,
       message: "Failed to fetch user",
@@ -234,8 +234,8 @@ router.get("/orders", authMiddleware, adminOnly, async (req, res) => {
       count: orders.length,
       orders
     });
-  } catch (error) {
-    error("GET ORDERS ERROR:", error);
+  } catch (err) {
+    error("GET ORDERS ERROR:", err);
     res.status(500).json({
       success: false,
       message: "Failed to fetch orders"
@@ -266,8 +266,8 @@ router.get("/orders/:id", authMiddleware, adminOnly, async (req, res) => {
       success: true,
       order
     });
-  } catch (error) {
-    error("GET ORDER ERROR:", error);
+  } catch (err) {
+    error("GET ORDER ERROR:", err);
     res.status(500).json({
       success: false,
       message: "Failed to fetch order"
@@ -306,8 +306,8 @@ router.patch("/orders/:id/status", authMiddleware, adminOnly, async (req, res) =
       message: "Order status updated",
       order
     });
-  } catch (error) {
-    error("UPDATE ORDER STATUS ERROR:", error);
+  } catch (err) {
+    error("UPDATE ORDER STATUS ERROR:", err);
     res.status(500).json({
       success: false,
       message: "Failed to update order status"
@@ -346,8 +346,8 @@ router.patch("/orders/:id/payment", authMiddleware, adminOnly, async (req, res) 
       message: "Payment status updated",
       order
     });
-  } catch (error) {
-    error("UPDATE PAYMENT ERROR:", error);
+  } catch (err) {
+    error("UPDATE PAYMENT ERROR:", err);
     res.status(500).json({
       success: false,
       message: "Failed to update payment status"
@@ -365,8 +365,8 @@ router.get("/products", authMiddleware, adminOnly, async (req, res) => {
       count: products.length,
       products
     });
-  } catch (error) {
-    error("GET PRODUCTS ERROR:", error);
+  } catch (err) {
+    error("GET PRODUCTS ERROR:", err);
     res.status(500).json({
       success: false,
       message: "Failed to fetch products"
@@ -377,18 +377,40 @@ router.get("/products", authMiddleware, adminOnly, async (req, res) => {
 /* 🔹 Add product */
 router.post("/products", authMiddleware, adminOnly, async (req, res) => {
   try {
-    const { product_name, product_price, product_image } = req.body;
+    const {
+      product_name,
+      product_price,
+      product_image,
+      product_category
+    } = req.body;
 
-    if (!product_name || !product_price) {
+    // Basic validation
+    if (!product_name || !product_price || !product_category || !product_image) {
       return res.status(400).json({
         success: false,
-        message: "Product name and price required"
+        message: "All product fields are required"
+      });
+    }
+
+    // Enum safety (extra protection)
+    const allowedCategories = [
+      "O.T. Linen",
+      "Staff Uniform",
+      "Doctor Scrub",
+      "Patient Dress",
+    ];
+
+    if (!allowedCategories.includes(product_category)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid product category"
       });
     }
 
     const product = await Product.create({
       product_name,
-      product_price,
+      product_price: Number(product_price),
+      product_category,
       product_image
     });
 
@@ -397,11 +419,13 @@ router.post("/products", authMiddleware, adminOnly, async (req, res) => {
       message: "Product added",
       product
     });
+
   } catch (err) {
     error("ADD PRODUCT ERROR:", err);
     res.status(500).json({
       success: false,
-      message: "Failed to add product"
+      message: "Failed to add product",
+      error: err.message
     });
   }
 });
@@ -434,8 +458,8 @@ router.put("/products/:id", authMiddleware, adminOnly, async (req, res) => {
       message: "Product updated",
       product
     });
-  } catch (error) {
-    error("UPDATE PRODUCT ERROR:", error);
+  } catch (err) {
+    error("UPDATE PRODUCT ERROR:", err);
     res.status(500).json({
       success: false,
       message: "Failed to update product"
@@ -466,8 +490,8 @@ router.delete("/products/:id", authMiddleware, adminOnly, async (req, res) => {
       success: true,
       message: "Product deleted"
     });
-  } catch (error) {
-    error("DELETE PRODUCT ERROR:", error);
+  } catch (err) {
+    error("DELETE PRODUCT ERROR:", err);
     res.status(500).json({
       success: false,
       message: "Failed to delete product"
@@ -485,8 +509,8 @@ router.get("/services", authMiddleware, adminOnly, async (req, res) => {
       count: services.length,
       services
     });
-  } catch (error) {
-    error("GET SERVICES ERROR:", error);
+  } catch (err) {
+    error("GET SERVICES ERROR:", err);
     res.status(500).json({
       success: false,
       message: "Failed to fetch services"
@@ -517,8 +541,8 @@ router.post("/services", authMiddleware, adminOnly, async (req, res) => {
       message: "Service added",
       service
     });
-  } catch (error) {
-    error("ADD SERVICE ERROR:", error);
+  } catch (err) {
+    error("ADD SERVICE ERROR:", err);
     res.status(500).json({
       success: false,
       message: "Failed to add service"
@@ -554,8 +578,8 @@ router.put("/services/:id", authMiddleware, adminOnly, async (req, res) => {
       message: "Service updated",
       service
     });
-  } catch (error) {
-    error("UPDATE SERVICE ERROR:", error);
+  } catch (err) {
+    error("UPDATE SERVICE ERROR:", err);
     res.status(500).json({
       success: false,
       message: "Failed to update service"
@@ -586,8 +610,8 @@ router.delete("/services/:id", authMiddleware, adminOnly, async (req, res) => {
       success: true,
       message: "Service deleted"
     });
-  } catch (error) {
-    error("DELETE SERVICE ERROR:", error);
+  } catch (err) {
+    error("DELETE SERVICE ERROR:", err);
     res.status(500).json({
       success: false,
       message: "Failed to delete service"
@@ -606,8 +630,8 @@ router.get("/contacts", authMiddleware, adminOnly, async (req, res) => {
       count: contacts.length,
       contacts
     });
-  } catch (error) {
-    error("GET CONTACTS ERROR:", error);
+  } catch (err) {
+    error("GET CONTACTS ERROR:", err);
     res.status(500).json({
       success: false,
       message: "Failed to fetch contacts"
@@ -638,8 +662,8 @@ router.get("/contacts/:id", authMiddleware, adminOnly, async (req, res) => {
       success: true,
       contact
     });
-  } catch (error) {
-    error("GET CONTACT ERROR:", error);
+  } catch (err) {
+    error("GET CONTACT ERROR:", err);
     res.status(500).json({
       success: false,
       message: "Failed to fetch contact"
@@ -670,8 +694,8 @@ router.delete("/contacts/:id", authMiddleware, adminOnly, async (req, res) => {
       success: true,
       message: "Contact deleted"
     });
-  } catch (error) {
-    error("DELETE CONTACT ERROR:", error);
+  } catch (err) {
+    error("DELETE CONTACT ERROR:", err);
     res.status(500).json({
       success: false,
       message: "Failed to delete contact"
@@ -690,8 +714,8 @@ router.get("/subscriptions", authMiddleware, adminOnly, async (req, res) => {
       count: subscriptions.length,
       subscriptions
     });
-  } catch (error) {
-    error("GET SUBSCRIPTIONS ERROR:", error);
+  } catch (err) {
+    error("GET SUBSCRIPTIONS ERROR:", err);
     res.status(500).json({
       success: false,
       message: "Failed to fetch subscriptions"
@@ -722,8 +746,8 @@ router.delete("/subscriptions/:id", authMiddleware, adminOnly, async (req, res) 
       success: true,
       message: "Subscription deleted"
     });
-  } catch (error) {
-    error("DELETE SUBSCRIPTION ERROR:", error);
+  } catch (err) {
+    error("DELETE SUBSCRIPTION ERROR:", err);
     res.status(500).json({
       success: false,
       message: "Failed to delete subscription"
