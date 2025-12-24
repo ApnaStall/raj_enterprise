@@ -1,3 +1,5 @@
+console.log("🚀 INDEX.JS LOADED – CORS DEBUG ACTIVE");
+
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
@@ -26,6 +28,9 @@ const allowedOrigins = [
 ];
 
 app.use((req, res, next) => {
+  console.log("🌐 Incoming request:", req.method, req.originalUrl, "from", req.headers.origin);
+  // existing CORS code…
+
   const origin = req.headers.origin;
 
   if (allowedOrigins.includes(origin)) {
