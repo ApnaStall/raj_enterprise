@@ -4,6 +4,7 @@ import OrdersTable from "../components/orders/OrdersTable";
 import PageTitle from "../components/ui/PageTitle";
 import Loader from "../components/ui/Loader";
 import { log, error } from "../utils/logger";
+import { Helmet } from "react-helmet-async";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);

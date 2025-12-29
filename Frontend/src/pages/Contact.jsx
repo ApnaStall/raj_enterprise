@@ -1,9 +1,10 @@
-import React from 'react'
-import Navbar from '../components/layout/Navbar'
-import ContactUs from '../components/contact/ContactUs'
-import ContactForm from '../components/contact/ContactForm'
-import MapEmbed from '../components/contact/MapEmbed'
-import Footer from '../components/layout/Footer'
+import React from 'react';
+import Navbar from '../components/layout/Navbar';
+import ContactUs from '../components/contact/ContactUs';
+import ContactForm from '../components/contact/ContactForm';
+import MapEmbed from '../components/contact/MapEmbed';
+import Footer from '../components/layout/Footer';
+import { Helmet } from "react-helmet-async";
 
 function Contact() {
   return (

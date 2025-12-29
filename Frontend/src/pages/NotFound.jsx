@@ -1,6 +1,7 @@
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import NotFoundContent from "../components/404/NotFoundComponent";
+import { Helmet } from "react-helmet-async";
 
 export default function NotFound() {
   return (

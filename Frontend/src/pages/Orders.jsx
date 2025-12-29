@@ -1,6 +1,7 @@
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import OrdersList from "../components/profile/orders/OrdersList";
+import { Helmet } from "react-helmet-async";
 
 function Orders() {
   return (

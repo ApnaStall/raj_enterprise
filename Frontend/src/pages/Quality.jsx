@@ -1,9 +1,10 @@
-import React from 'react'
-import Navbar from '../components/layout/Navbar'
-import TopDesign from '../components/section/TopDesign'
-import QualityAssurance from '../components/section/QualityAssurance'
-import Testimonials from '../components/testimonial/Testimonials'
-import Footer from '../components/layout/Footer'
+import React from 'react';
+import Navbar from '../components/layout/Navbar';
+import TopDesign from '../components/section/TopDesign';
+import QualityAssurance from '../components/section/QualityAssurance';
+import Testimonials from '../components/testimonial/Testimonials';
+import Footer from '../components/layout/Footer';
+import { Helmet } from "react-helmet-async";
 
 function Quality() {
   return (

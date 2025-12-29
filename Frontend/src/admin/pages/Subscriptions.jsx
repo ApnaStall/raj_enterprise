@@ -3,6 +3,7 @@ import adminApi from "../services/adminApi";
 import SubscriptionsTable from "../components/subscriptions/SubscriptionsTable";
 import PageTitle from "../components/ui/PageTitle";
 import Loader from "../components/ui/Loader";
+import { Helmet } from "react-helmet-async";
 
 const Subscriptions = () => {
   const [subscriptions, setSubscriptions] = useState([]);

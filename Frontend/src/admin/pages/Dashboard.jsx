@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import adminApi from "../services/adminApi";
 import Loader from "../components/ui/Loader";
-
-/* Charts */
 import RevenueChart from "../components/dashboard/RevenueChart";
 import OrderStatusChart from "../components/dashboard/OrderStatusChart";
 import StatCard from "../components/dashboard/StatCard";
 import RecentOrders from "../components/dashboard/RecentOrders";
+import { Helmet } from "react-helmet-async";
 
 const Dashboard = () => {
   const [loading, setLoading] = useState(true);

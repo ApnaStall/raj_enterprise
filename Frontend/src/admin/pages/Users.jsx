@@ -4,6 +4,7 @@ import UsersTable from "../components/users/UsersTable";
 import PageTitle from "../components/ui/PageTitle";
 import Loader from "../components/ui/Loader";
 import { log, error } from "../utils/logger";
+import { Helmet } from "react-helmet-async";
 
 const Users = () => {
   const [users, setUsers] = useState([]);

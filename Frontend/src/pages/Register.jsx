@@ -3,6 +3,7 @@ import RegisterLayout from "../components/auth/RegisterLayout";
 import RegisterHeader from "../components/auth/RegisterHeader";
 import RegisterForm from "../components/auth/RegisterForm";
 import RegisterFooter from "../components/auth/RegisterFooter";
+import { Helmet } from "react-helmet-async";
 
 function Register() {
   return (

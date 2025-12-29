@@ -4,6 +4,7 @@ import ServicesTable from "../components/services/ServicesTable";
 import ServiceModal from "../components/services/ServiceModal";
 import PageTitle from "../components/ui/PageTitle";
 import Loader from "../components/ui/Loader";
+import { Helmet } from "react-helmet-async";
 
 const Services = () => {
   const [services, setServices] = useState([]);

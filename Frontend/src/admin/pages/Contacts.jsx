@@ -4,6 +4,7 @@ import ContactsTable from "../components/contacts/ContactsTable";
 import ContactModal from "../components/contacts/ContactModal";
 import PageTitle from "../components/ui/PageTitle";
 import Loader from "../components/ui/Loader";
+import { Helmet } from "react-helmet-async";
 
 const Contacts = () => {
   const [contacts, setContacts] = useState([]);

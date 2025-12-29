@@ -3,6 +3,7 @@ import LoginLayout from "../components/auth/LoginLayout";
 import LoginHeader from "../components/auth/LoginHeader";
 import LoginForm from "../components/auth/LoginForm.jsx";
 import LoginFooter from "../components/auth/LoginFooter";
+import { Helmet } from "react-helmet-async";
 
 function Login() {
   return (

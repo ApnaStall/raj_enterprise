@@ -1,9 +1,11 @@
-import React from 'react'
-import Navbar from '../components/layout/Navbar'
-import AboutUs from '../components/about/AboutUs'
-import WhyChooseUs from '../components/section/WhyChooseUs'
-import Testimonials from '../components/testimonial/Testimonials'
-import Footer from '../components/layout/Footer'
+import React from 'react';
+import Navbar from '../components/layout/Navbar';
+import AboutUs from '../components/about/AboutUs';
+import WhyChooseUs from '../components/section/WhyChooseUs';
+import Testimonials from '../components/testimonial/Testimonials';
+import Footer from '../components/layout/Footer';
+import { Helmet } from "react-helmet-async";
+
 
 function About() {
   return (

@@ -3,6 +3,7 @@ import Navbar from '../components/layout/Navbar';
 import Products from '../components/product/Products';
 import ProductList from '../components/product/ProductList';
 import Footer from '../components/layout/Footer';
+import { Helmet } from "react-helmet-async";
 
 function Shop() {
   return (

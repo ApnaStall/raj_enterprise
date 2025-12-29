@@ -4,6 +4,7 @@ import ProductsTable from "../components/products/ProductsTable";
 import ProductModal from "../components/products/ProductModal";
 import PageTitle from "../components/ui/PageTitle";
 import Loader from "../components/ui/Loader";
+import { Helmet } from "react-helmet-async";
 
 const Products = () => {
   const [products, setProducts] = useState([]);

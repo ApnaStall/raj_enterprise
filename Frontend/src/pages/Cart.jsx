@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/layout/Navbar";
 import CartContent from "../components/cart/CartContent";
 import Footer from "../components/layout/Footer";
+import { Helmet } from "react-helmet-async";
 
 function Cart() {
   return (

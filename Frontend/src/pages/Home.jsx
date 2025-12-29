@@ -9,6 +9,7 @@ import CategoryCard from '../components/home/CategoryCard';
 import Testimonials from '../components/testimonial/Testimonials';
 import { QualityTiles } from '../components/section/QualityAssurance';
 import Footer from '../components/layout/Footer';
+import { Helmet } from "react-helmet-async";
 
 function Home() {
   return (

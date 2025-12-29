@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import ProfileLayout from "../components/profile/ProfileLayout";
+import { Helmet } from "react-helmet-async";
 
 function Profile() {
   const { state } = useLocation();
