@@ -11,30 +11,33 @@ import Footer from '../components/layout/Footer'
 function Services() {
   return (
     <>
-    <div>
-      <Navbar />
-    </div>
-    <div>
-        <TopDesign />
-    </div>
-    <div>
-        <WhyChooseUsTiles />
-    </div>
-    <div>
-        <CraftedWith />
-    </div>
-    <div>
-        <ProductCategoryGrid />
-    </div>
-    <div>
-        <ClientsSection />
-    </div>
-    <div>
-        <Testimonials />
-    </div>
-    <div>
-        <Footer />
-    </div>
+        <Helmet>
+            <title>Services | Raj Enterprise</title>
+        </Helmet>
+        <div>
+        <Navbar />
+        </div>
+        <div>
+            <TopDesign />
+        </div>
+        <div>
+            <WhyChooseUsTiles />
+        </div>
+        <div>
+            <CraftedWith />
+        </div>
+        <div>
+            <ProductCategoryGrid />
+        </div>
+        <div>
+            <ClientsSection />
+        </div>
+        <div>
+            <Testimonials />
+        </div>
+        <div>
+            <Footer />
+        </div>
     </>
   )
 }

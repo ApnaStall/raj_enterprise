@@ -7,11 +7,16 @@ import RegisterFooter from "../components/auth/RegisterFooter";
 function Register() {
   return (
     <>
-    <RegisterLayout>
-      <RegisterHeader />
-      <RegisterForm />
-      <RegisterFooter />
-    </RegisterLayout>
+      <Helmet>
+        <title>Register | Raj Enterprise</title>
+      </Helmet>
+      <div>
+      <RegisterLayout>
+        <RegisterHeader />
+        <RegisterForm />
+        <RegisterFooter />
+      </RegisterLayout>
+      </div>
     </>
   );
 }

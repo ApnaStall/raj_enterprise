@@ -10,10 +10,14 @@ function Payment() {
   }
 
   return (
-    <PaymentLayout
-      orderId={state.orderId}
-      amount={state.amount}
-    />
+    <>
+      <Helmet>
+        <title>Payment | Raj Enterprise</title>
+      </Helmet>
+      <div>
+        <PaymentLayout orderId={state.orderId} amount={state.amount} />
+      </div>
+    </>
   );
 }
 

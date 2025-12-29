@@ -8,21 +8,24 @@ import Footer from '../components/layout/Footer'
 function Contact() {
   return (
     <>
-    <div>
-      <Navbar />
-    </div>
-    <div>
-      <ContactUs />
-    </div>
-    <div>
-      <ContactForm />
-    </div>
-    <div>
-      <MapEmbed />
-    </div>
-    <div>
-      <Footer />
-    </div>
+      <Helmet>
+        <title>Contact Us | Raj Enterprise</title>
+      </Helmet>
+      <div>
+        <Navbar />
+      </div>
+      <div>
+        <ContactUs />
+      </div>
+      <div>
+        <ContactForm />
+      </div>
+      <div>
+        <MapEmbed />
+      </div>
+      <div>
+        <Footer />
+      </div>
     </>
   )
 }

@@ -25,20 +25,25 @@ const Users = () => {
   }, []);
 
   return (
-    <div className="space-y-6">
-      <div>
-        <PageTitle>Users</PageTitle>
-        <p className="text-sm text-gray-500">
-          Manage platform users and roles
-        </p>
-      </div>
+    <>
+      <Helmet>
+        <title>Users | Admin</title>
+      </Helmet>
+      <div className="space-y-6">
+        <div>
+          <PageTitle>Users</PageTitle>
+          <p className="text-sm text-gray-500">
+            Manage platform users and roles
+          </p>
+        </div>
 
-      {loading ? (
-        <Loader text="Loading users..." />
-      ) : (
-        <UsersTable users={users} onRefresh={fetchUsers} />
-      )}
-    </div>
+        {loading ? (
+          <Loader text="Loading users..." />
+        ) : (
+          <UsersTable users={users} onRefresh={fetchUsers} />
+        )}
+      </div>
+    </>
   );
 };
 

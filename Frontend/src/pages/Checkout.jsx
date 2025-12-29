@@ -6,9 +6,18 @@ import CheckoutLayout from "../components/checkout/CheckoutLayout";
 function Checkout() {
   return (
     <>
-      <Navbar />
-      <CheckoutLayout />
-      <Footer />
+      <Helmet>
+        <title>Checkout | Raj Enterprise</title>
+      </Helmet>
+      <div>
+        <Navbar />
+      </div>
+      <div>
+        <CheckoutLayout />
+      </div>
+      <div>
+        <Footer />
+      </div>
     </>
   );
 }

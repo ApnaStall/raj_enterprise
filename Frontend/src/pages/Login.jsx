@@ -7,11 +7,16 @@ import LoginFooter from "../components/auth/LoginFooter";
 function Login() {
   return (
     <>
-    <LoginLayout>
-      <LoginHeader />
-      <LoginForm />
-      <LoginFooter />
-    </LoginLayout>
+      <Helmet>
+        <title>Login | Raj Enterprise</title>
+      </Helmet>
+      <div>
+      <LoginLayout>
+        <LoginHeader />
+        <LoginForm />
+        <LoginFooter />      
+      </LoginLayout>
+      </div>
     </>
   );
 }

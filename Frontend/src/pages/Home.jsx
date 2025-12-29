@@ -13,6 +13,9 @@ import Footer from '../components/layout/Footer';
 function Home() {
   return (
     <>
+      <Helmet>
+        <title>Home | Raj Enterprise</title>
+      </Helmet>
       <div>
         <Navbar />
       </div>

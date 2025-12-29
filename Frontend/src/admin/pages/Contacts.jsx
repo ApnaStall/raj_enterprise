@@ -25,34 +25,40 @@ const Contacts = () => {
   }, []);
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div>
-        <PageTitle>Contact Messages</PageTitle>
-        <p className="text-sm text-gray-500">
-          Messages submitted through the contact form
-        </p>
+    <>
+      <Helmet>
+        <title>Contacts | Admin</title>
+      </Helmet>
+
+      <div className="space-y-6">
+        {/* Header */}
+        <div>
+          <PageTitle>Contact Messages</PageTitle>
+          <p className="text-sm text-gray-500">
+            Messages submitted through the contact form
+          </p>
+        </div>
+
+        {/* Table */}
+        {loading ? (
+          <Loader text="Loading messages..." />
+        ) : (
+          <ContactsTable
+            contacts={contacts}
+            onView={setSelected}
+            onRefresh={fetchContacts}
+          />
+        )}
+
+        {/* Modal */}
+        {selected && (
+          <ContactModal
+            contact={selected}
+            onClose={() => setSelected(null)}
+          />
+        )}
       </div>
-
-      {/* Table */}
-      {loading ? (
-        <Loader text="Loading messages..." />
-      ) : (
-        <ContactsTable
-          contacts={contacts}
-          onView={setSelected}
-          onRefresh={fetchContacts}
-        />
-      )}
-
-      {/* Modal */}
-      {selected && (
-        <ContactModal
-          contact={selected}
-          onClose={() => setSelected(null)}
-        />
-      )}
-    </div>
+    </>
   );
 };
 

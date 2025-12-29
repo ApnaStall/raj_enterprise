@@ -8,21 +8,24 @@ import Footer from '../components/layout/Footer'
 function About() {
   return (
     <>
-    <div>
-      <Navbar />
-    </div>
-    <div>
-      <AboutUs />
-    </div>
-    <div>
-      <WhyChooseUs />
-    </div>
-    <div>
-      <Testimonials />
-    </div>
-    <div>
-      <Footer />
-    </div>
+      <Helmet>
+        <title>About Us | Raj Enterprise</title>
+      </Helmet>
+      <div>
+        <Navbar />
+      </div>
+      <div>
+        <AboutUs />
+      </div>
+      <div>
+        <WhyChooseUs />
+      </div>
+      <div>
+        <Testimonials />
+      </div>
+      <div>
+        <Footer />
+      </div>
     </>
   )
 }

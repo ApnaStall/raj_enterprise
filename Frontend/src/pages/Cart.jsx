@@ -6,6 +6,9 @@ import Footer from "../components/layout/Footer";
 function Cart() {
   return (
     <>
+      <Helmet>
+        <title>Cart | Raj Enterprise</title>
+      </Helmet>
       <div>
         <Navbar />
       </div>

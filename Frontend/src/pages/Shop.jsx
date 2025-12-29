@@ -7,18 +7,21 @@ import Footer from '../components/layout/Footer';
 function Shop() {
   return (
     <>
-    <div>
-      <Navbar />
-    </div>
-    <div>
-      <Products />
-    </div>
-    <div>
-        <ProductList />
-    </div>
-    <div>
-        <Footer />
-    </div>
+      <Helmet>
+        <title>Shop | Raj Enterprise</title>
+      </Helmet>
+      <div>
+        <Navbar />
+      </div>
+      <div>
+        <Products />
+      </div>
+      <div>
+          <ProductList />
+      </div>
+      <div>
+          <Footer />
+      </div>
     </>
   )
 }

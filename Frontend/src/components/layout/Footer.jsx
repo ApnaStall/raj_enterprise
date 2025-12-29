@@ -63,7 +63,7 @@ export default function Footer() {
             </h2>
 
             <p className="mt-3 text-gray-600 leading-relaxed">
-              "ROSE GARMENT specializes in hospital uniforms and linen, serving
+              "Raj Enterprise specializes in hospital uniforms and linen, serving
               over 200 hospitals across Mumbai since 2013, covering Central,
               Western, Harbour, and Trans Harbour zones."
             </p>

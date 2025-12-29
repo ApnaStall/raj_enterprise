@@ -5,9 +5,14 @@ function Profile() {
   const { state } = useLocation();
 
   return (
-    <ProfileLayout
-      fromCheckout={state?.fromCheckout}
-    />
+    <>
+      <Helmet>
+        <title>Profile | Raj Enterprise</title>
+      </Helmet>
+      <div>
+        <ProfileLayout fromCheckout={state?.fromCheckout} />
+      </div>
+    </>
   );
 }
 

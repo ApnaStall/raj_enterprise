@@ -26,50 +26,55 @@ const Products = () => {
   }, []);
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex justify-between items-center">
-        <div>
-          <PageTitle>Products</PageTitle>
-          <p className="text-sm text-gray-500">
-            Manage your product catalog
-          </p>
+    <>
+      <Helmet>
+        <title>Products | Admin</title>
+      </Helmet>
+      <div className="space-y-6">
+        {/* Header */}
+        <div className="flex justify-between items-center">
+          <div>
+            <PageTitle>Products</PageTitle>
+            <p className="text-sm text-gray-500">
+              Manage your product catalog
+            </p>
+          </div>
+
+          <button
+            onClick={() => {
+              setEditProduct(null);
+              setOpen(true);
+            }}
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition cursor-pointer"
+          >
+            + Add Product
+          </button>
         </div>
 
-        <button
-          onClick={() => {
-            setEditProduct(null);
-            setOpen(true);
-          }}
-          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition cursor-pointer"
-        >
-          + Add Product
-        </button>
+        {/* Table */}
+        {loading ? (
+          <Loader text="Loading products..." />
+        ) : (
+          <ProductsTable
+            products={products}
+            onEdit={(p) => {
+              setEditProduct(p);
+              setOpen(true);
+            }}
+            onRefresh={fetchProducts}
+          />
+        )}
+
+        {/* Modal */}
+        {open && (
+          <ProductModal
+            product={editProduct}
+            onClose={() => setOpen(false)}
+            onSaved={fetchProducts}
+          />
+        )}
       </div>
-
-      {/* Table */}
-      {loading ? (
-        <Loader text="Loading products..." />
-      ) : (
-        <ProductsTable
-          products={products}
-          onEdit={(p) => {
-            setEditProduct(p);
-            setOpen(true);
-          }}
-          onRefresh={fetchProducts}
-        />
-      )}
-
-      {/* Modal */}
-      {open && (
-        <ProductModal
-          product={editProduct}
-          onClose={() => setOpen(false)}
-          onSaved={fetchProducts}
-        />
-      )}
-    </div>
+    </>
   );
 };
 

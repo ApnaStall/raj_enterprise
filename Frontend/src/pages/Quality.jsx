@@ -8,21 +8,24 @@ import Footer from '../components/layout/Footer'
 function Quality() {
   return (
     <>
-    <div>
-        <Navbar />
-    </div>
-    <div>
-      <TopDesign />
-    </div>
-    <div>
-      <QualityAssurance />
-    </div>
-    <div>
-        <Testimonials />
-    </div>
-    <div>
-        <Footer />
-    </div>
+      <Helmet>
+        <title>Quality | Raj Enterprise</title>
+      </Helmet>
+      <div>
+          <Navbar />
+      </div>
+      <div>
+        <TopDesign />
+      </div>
+      <div>
+        <QualityAssurance />
+      </div>
+      <div>
+          <Testimonials />
+      </div>
+      <div>
+          <Footer />
+      </div>
     </>
   )
 }

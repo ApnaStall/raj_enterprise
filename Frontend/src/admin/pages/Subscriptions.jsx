@@ -23,25 +23,30 @@ const Subscriptions = () => {
   }, []);
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div>
-        <PageTitle>Subscriptions</PageTitle>
-        <p className="text-sm text-gray-500">
-          Users subscribed for updates and notifications
-        </p>
-      </div>
+    <>
+      <Helmet>
+        <title>Subscriptions | Admin</title>
+      </Helmet>
+      <div className="space-y-6">
+        {/* Header */}
+        <div>
+          <PageTitle>Subscriptions</PageTitle>
+          <p className="text-sm text-gray-500">
+            Users subscribed for updates and notifications
+          </p>
+        </div>
 
-      {/* Table */}
-      {loading ? (
-        <Loader text="Loading subscriptions..." />
-      ) : (
-        <SubscriptionsTable
-          subscriptions={subscriptions}
-          onRefresh={fetchSubscriptions}
-        />
-      )}
-    </div>
+        {/* Table */}
+        {loading ? (
+          <Loader text="Loading subscriptions..." />
+        ) : (
+          <SubscriptionsTable
+            subscriptions={subscriptions}
+            onRefresh={fetchSubscriptions}
+          />
+        )}
+      </div>
+    </>
   );
 };
 
