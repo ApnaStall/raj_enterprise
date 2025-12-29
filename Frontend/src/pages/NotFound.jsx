@@ -1,6 +1,6 @@
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
-import NotFoundContent from "../components/common/NotFoundContent";
+import NotFoundContent from "../components/404/NotFoundComponent";
 
 export default function NotFound() {
   return (
