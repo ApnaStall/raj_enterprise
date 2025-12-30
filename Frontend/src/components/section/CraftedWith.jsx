@@ -16,7 +16,7 @@ function CraftedWith() {
             </h2>
 
             <p className="text-gray-700 leading-relaxed text-lg">
-              "At <span className="font-bold">ROSE GARMENT</span>, we specialize in crafting hospital linen clothes 
+              "At <span className="font-bold">Raj Enterprise</span>, we specialize in crafting hospital linen clothes 
               with exceptional attention to quality and durability. Each garment is meticulously crafted 
               using premium materials to ensure comfort, longevity, and hygienic performance in healthcare 
               environments. Our commitment to excellence extends to every stitch, providing healthcare 

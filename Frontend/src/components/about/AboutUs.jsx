@@ -8,7 +8,7 @@ function AboutUs() {
           <h2 className="text-5xl font-bold mb-6">About Us</h2>
 
           <p className="text-lg leading-relaxed text-gray-800">
-            <span className="font-bold">ROSE GARMENT</span> is a company well
+            <span className="font-bold">Raj Enterprise</span> is a company well
             known in the field for Hospital uniforms & linen cloth for hospital
             requirements, we engages actively in the creation of various clothes
             used in hospitals. Established in 2005 since then we are dealing with
@@ -17,7 +17,7 @@ function AboutUs() {
           </p>
 
           <p className="text-lg leading-relaxed text-gray-800 mt-4">
-            We are at <span className="font-bold">ROSE GARMENT</span> having a
+            We are at <span className="font-bold">Raj Enterprise</span> having a
             team of 20 people who actually looking to built an environment and to
             re-established relationships with corporate world.
           </p>

@@ -41,7 +41,7 @@ function WeHelpYou() {
               </h2>
 
               <p className="mt-5 text-gray-700 leading-relaxed">
-                At <span className="font-bold">ROSE GARMENT</span>, our dedicated team
+                At <span className="font-bold">Raj Enterprise</span>, our dedicated team
                 provides personalized advice and recommendations on our range of hospital
                 linen products. We take the time to understand your needs and preferences
                 to offer tailored solutions, whether it's scrubs, patient gowns, or other
@@ -49,7 +49,7 @@ function WeHelpYou() {
               </p>
 
               <p className="mt-4 font-semibold text-gray-800">
-                ROSE GARMENT Provides Its Services Majorly To:
+                Raj Enterprise Provides Its Services Majorly To:
               </p>
 
               <div className="grid grid-cols-2 gap-x-6 gap-y-2 mt-3 text-gray-700 text-sm">
