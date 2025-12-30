@@ -70,7 +70,7 @@ function Navbar() {
     <nav className="w-full bg-linear-to-r from-[#00e0e8] to-[#000080]
                     text-white fixed top-0 left-0 z-50">
 
-      <div className="max-w-10xl mx-auto flex items-center justify-between px-4 py-6">
+      <div className="max-w-10xl mx-auto flex items-center justify-between px-4 py-6 border-5 border-yellow-300">
 
         {/* LOGO */}
         <div
