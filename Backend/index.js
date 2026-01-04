@@ -21,8 +21,8 @@ const app = express();
 
 /* -------------------- MIDDLEWARE -------------------- */
 const allowedOrigins = [
-  "http://localhost:5173",
-  "https://raj-enterprise-new.vercel.app"
+  "https://raj-enterprise-new.vercel.app",
+  "http://localhost:5173"
 ];
 
 app.use((req, res, next) => {
