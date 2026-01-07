@@ -4,7 +4,16 @@ const upload = require("../middleware/uploadMiddleware");
 const router = express.Router();
 
 router.post("/upload", upload.single("image"), (req, res) => {
-  const imageUrl = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
+  console.log("📥 Upload endpoint hit");
+
+  if (!req.file) {
+    return res.status(400).json({ message: "No file uploaded" });
+  }
+
+  console.log("✅ File saved as:", req.file.filename);
+
+  const imageUrl = `${req.protocol}://${req.get("host")}/uploads/${encodeURIComponent(req.file.filename)}`;
+
   res.json({ url: imageUrl });
 });
 

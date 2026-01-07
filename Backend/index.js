@@ -57,7 +57,7 @@ app.use(express.urlencoded({ extended: true }));
 /* IMPORTANT: this is required for product images */
 app.use(
   "/uploads",
-  express.static(path.join(__dirname, "uploads")),
+  express.static(path.join(process.cwd(), "uploads")),
   serveIndex("uploads", { icons: true })
 );
 
